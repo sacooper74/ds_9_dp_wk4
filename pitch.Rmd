@@ -1,0 +1,53 @@
+---
+title: "Data Products Week 4 Assignment"
+author: "SC"
+date: "23 January 2018"
+output: ioslides_presentation
+---
+
+## Run Prediction
+
+- The Shiny app predicts your race pace (seconds or minutes per kilometer) based upon your cadence (strides per minute).
+- It is based upon personal Garmin data gathered over the course of a number of years.
+- Predictions are based on a linear model of outcome average pace with predictor of average cadence.
+- Predictions are averaged across multiple terrains, elevation and weather.
+- A future release of this product will enable users to input these other predictors.
+
+## Structure of Data
+
+The data is based upon personal Garmin data gathered over a course of a number of years.  There are many vaiables, but the key ones are:
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+setwd("C:/Users/steve.a.cooper/Google Drive/Coursera - DS/ds_9_dp/ds_9_dp_wk4/CourseProject")
+library(shiny)
+library(tidyverse)
+
+# import the dataset
+runlog <- read_csv("runlog.csv", 
+                   col_types = list(AvgPace = col_time(format = "%M:%S")))
+runlog$AvgCadence <- as.numeric(runlog$AvgCadence)
+
+str(runlog)
+```
+
+```{r str}
+str(runlog)
+```
+
+## Data Header
+
+Here are the first 5 rows of the data and summary:
+
+```{r head}
+head(runlog)
+```
+
+## Data Summary
+
+Here are the first 5 rows of the data and summary:
+
+```{r summary}
+summary(runlog)
+```

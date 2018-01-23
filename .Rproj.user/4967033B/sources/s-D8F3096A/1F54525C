@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1516745789849.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3192551065",
+    "id" : "1F54525C",
+    "lastKnownWriteTime" : 1516745975,
+    "last_content_update" : 1516745975298,
+    "path" : "C:/Users/steve.a.cooper/Google Drive/Coursera - DS/ds_9_dp/ds_9_dp_wk4/CourseProject/server.R",
+    "project_path" : "server.R",
+    "properties" : {
+        "cursorPosition" : "53,51",
+        "scrollLine" : "22"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
