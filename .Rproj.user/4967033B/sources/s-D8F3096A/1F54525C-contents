@@ -8,7 +8,6 @@
 #
 
 # libraries
-setwd("C:/Users/steve.a.cooper/Google Drive/Coursera - DS/ds_9_dp/ds_9_dp_wk4/CourseProject")
 library(shiny)
 library(tidyverse)
 
@@ -52,3 +51,4 @@ shinyServer(function(input, output) {
 # Reference:
 # https://deanattali.com/blog/building-shiny-apps-tutorial/#4-load-the-dataset
 # https://shiny.rstudio.com/articles/shinyapps.html
+# https://support.rstudio.com/hc/en-us/articles/220339568-What-does-Disconnected-from-Server-mean-in-shinyapps-io-

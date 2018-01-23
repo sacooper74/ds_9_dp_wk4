@@ -20,7 +20,6 @@ The data is based upon personal Garmin data gathered over a course of a number o
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 
-setwd("C:/Users/steve.a.cooper/Google Drive/Coursera - DS/ds_9_dp/ds_9_dp_wk4/CourseProject")
 library(shiny)
 library(tidyverse)
 
