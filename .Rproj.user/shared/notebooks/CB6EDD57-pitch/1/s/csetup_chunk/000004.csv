@@ -1,0 +1,19 @@
+"0","knitr::opts_chunk$set(echo = FALSE)"
+"0","library(shiny)"
+"0","library(tidyverse)"
+"0","library(ggcorrplot)"
+"0","# import the dataset"
+"0","runlog <- read_csv(""runlog.csv"", "
+"0","                   col_types = list(AvgPace = col_time(format = ""%M:%S"")))"
+"2","number of columns of result is not a multiple of vector length (arg 1)"
+"2","67 parsing failures.
+row [38;5;246m# A tibble: 5 x 5[39m col     row col   expected   actual   file         expected   [3m[38;5;246m<int>[39m[23m [3m[38;5;246m<chr>[39m[23m [3m[38;5;246m<chr>[39m[23m      [3m[38;5;246m<chr>[39m[23m    [3m[38;5;246m<chr>[39m[23m        actual [38;5;250m1[39m     1 Time  valid date 58:06:00 'runlog.csv' file [38;5;250m2[39m     2 Time  valid date 59:04:00 'runlog.csv' row [38;5;250m3[39m     3 Time  valid date 54:33:00 'runlog.csv' col [38;5;250m4[39m     6 Time  valid date 55:08:00 'runlog.csv' expected [38;5;250m5[39m     7 Time  valid date 47:06:00 'runlog.csv'
+... ................................. ... .............................................. ........ ........................................................................................................................................................................... ...... .............................................................. .... .............................................................. ... .............................................................. ... .............................................................. ........ ..............................................................
+See problems(...) for more details.
+"
+"0","runlog$AvgCadence <- as.numeric(runlog$AvgCadence)"
+"0","runlog$pace_num <- as.numeric(as.POSIXct(runlog$AvgPace, ""%M:%S"", tz = GMT))"
+"0","runlog$`Elev Gain` "
+"2","Unknown or uninitialised column: 'Elev Gain'."
+"1","NULL
+"

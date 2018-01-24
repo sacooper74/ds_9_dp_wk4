@@ -5,15 +5,16 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
+    "hash" : "1644241909",
     "id" : "A9A48C6F",
-    "lastKnownWriteTime" : 1516746874,
-    "last_content_update" : 1516746874284,
+    "lastKnownWriteTime" : 1516829262,
+    "last_content_update" : 1516829944595,
     "path" : "C:/Users/steve.a.cooper/Google Drive/Coursera - DS/ds_9_dp/ds_9_dp_wk4/CourseProject/pitch.Rmd",
     "project_path" : "pitch.Rmd",
     "properties" : {
-        "cursorPosition" : "22,0",
-        "scrollLine" : "0"
+        "cursorPosition" : "55,16",
+        "last_setup_crc32" : "1DB884DE302c651d",
+        "scrollLine" : "46"
     },
     "relative_order" : 1,
     "source_on_save" : false,

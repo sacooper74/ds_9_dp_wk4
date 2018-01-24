@@ -16,39 +16,38 @@ shinyServer(function(input, output) {
   runlog <- read_csv("runlog.csv", 
                      col_types = list(AvgPace = col_time(format = "%M:%S")))
   runlog$AvgCadence <- as.numeric(runlog$AvgCadence)
+  runlog$pace_num <- as.numeric(as.POSIXct(runlog$AvgPace, "%M:%S", tz = GMT))
 
-  # linear model to predict average pace based upon average cadence
-  model1 <- lm(AvgPace ~ AvgCadence, data = runlog)
-  model1$coefficients
+  # linear model to predict average pace based upon average cadence and elevation gain
+  model1 <- lm(pace_num ~ AvgCadence + ElevGain, data = runlog)
+  # model1$coefficients
 
   # Perform the prediction in a reactive function
   model1pred <- reactive({
     cad_input <- input$slider_cad
-    predict(model1, newdata = data.frame(AvgCadence = cad_input))
+    elev_input <- input$slider_elev
+    predict(model1, newdata = data.frame(AvgCadence = cad_input, ElevGain = elev_input))
   })
   
   # Output the plot
   output$plot1 <- renderPlot({
     cad_input <- input$slider_cad
+    elev_input <- input$slider_elev
     
     runlog %>%
       ggplot(mapping = aes(AvgPace, AvgCadence)) +
-      geom_point() +
+      geom_point(mapping = aes(color = ElevGain)) +
+      # scale_colour_gradient2() +
       # geom_abline(intercept = model1$coefficients[1], slope = model1$coefficients[2]) +
       geom_smooth(method = "lm") +
-      geom_point(mapping = aes(model1pred(), cad_input), size = 5, colour = "red", alpha = 0.4)
+      geom_point(mapping = aes(model1pred(), cad_input), size = 3, colour = "red", alpha = 0.4)
     
-    # plot(runlog$AvgPace, runlog$AvgCadence, xlab = "Average Pace", ylab = "Average Cadence", bty = "n", pch = 16)
-    # abline(model1, col = "red", lwd = 2)
-    # points(cad_input, model1pred(), col = "red", pch = 5, cex = 2, lwd = 10)
   })
     
     output$pred1 <- renderText({
       model1pred() # model1 prediction
   })
+    output$pred2 <- renderText({
+      summary(model1)$adj.r.squared # r squared of model
+    })
 })
-
-# Reference:
-# https://deanattali.com/blog/building-shiny-apps-tutorial/#4-load-the-dataset
-# https://shiny.rstudio.com/articles/shinyapps.html
-# https://support.rstudio.com/hc/en-us/articles/220339568-What-does-Disconnected-from-Server-mean-in-shinyapps-io-
